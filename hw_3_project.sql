@@ -28,6 +28,18 @@ ORDER BY
 -- 3.  List all comedy films (regardless of other genres) by displaying the title and film year and 
 -- sort by revenue_mils so that the highest appears first.
 
+SELECT 
+	title AS "Title", 
+	film_year AS "Film_year",
+	revenue_mils  AS "Revenue_mils"
+FROM 
+	movies
+WHERE
+	genre LIKE '%Comedy%'
+AND
+	revenue_mils IS NOT NULL
+ORDER BY 
+	revenue_mils DESC;
 
 
 
