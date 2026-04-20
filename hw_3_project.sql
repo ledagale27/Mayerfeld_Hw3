@@ -1,13 +1,27 @@
 -- 1.  List the last names of actors (alphabetically), as well as how many actors have that last name.
-
-
-
+SELECT
+	last_name, COUNT(*) AS "actor_count"
+FROM
+	actor
+GROUP BY 
+	last_name
+ORDER BY
+	last_name ASC;
 
 
 -- 2.  List last names of actors and the number of actors who have that last name, but only for names 
 -- that are shared by at least three actors, sort so that last name with the highest number of actors appears at the top.
 
-
+SELECT
+	last_name, COUNT(*) AS actor_count
+FROM 
+	actor
+GROUP BY 
+	last_name
+HAVING 
+	COUNT(*) >= 3
+ORDER BY 
+	actor_count DESC;
 
 
 
