@@ -136,3 +136,10 @@ HAVING
 
 
 -- 10. Show the total revenue by month. Hint: Research “EXTRACT”.
+
+SELECT 
+	EXTRACT(MONTH FROM payment_date), SUM(amount)
+FROM
+	payment
+GROUP BY
+	EXTRACT(MONTH FROM payment_date);
