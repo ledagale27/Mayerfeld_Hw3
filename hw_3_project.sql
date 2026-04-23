@@ -77,8 +77,14 @@ ORDER BY
 -- 6.  Display the highest revenue amount for each year – output should show the film_year and revenue_mils
 -- and it should show oldest films first.
 
-
-
+SELECT
+	film_year, MAX(revenue_mils)
+FROM
+	movies
+GROUP BY
+	film_year 
+ORDER BY 
+	film_year ASC;
 
 
 -- 7.  List highest postal codes for all districts staring with either A, B, C, or D ordered by the starting letter.
