@@ -57,14 +57,21 @@ ORDER BY
 	film_year ASC;
 
 
-
-
 -- 5.  Show all directors who have directed more than 4 films. The output should contain their names and
 -- number of films they have directed. The output should show directors with more films at the top, and if
 -- there is a tie, sort alphabetically.
 
-
-
+SELECT
+	director, count(film_rank)
+FROM 
+	movies
+GROUP BY
+	director
+HAVING
+	count(film_rank) > 4
+ORDER BY
+	count(film_rank) DESC, director ASC;
+	
 
 
 -- 6.  Display the highest revenue amount for each year – output should show the film_year and revenue_mils
