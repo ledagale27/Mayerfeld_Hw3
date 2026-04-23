@@ -122,8 +122,17 @@ LIMIT
 
 -- 9.  Show the total number of actors who share their last name with 3 or more other actors.
 
-
-
+SELECT 
+	SUM(a.count_actors)
+FROM 
+(SELECT 
+	last_name, COUNT(last_name) AS count_actors
+FROM
+	actor
+GROUP BY
+	last_name
+HAVING
+	COUNT(last_name) >= 3) AS a;
 
 
 -- 10. Show the total revenue by month. Hint: Research “EXTRACT”.
