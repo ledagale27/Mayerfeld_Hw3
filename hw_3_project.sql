@@ -102,13 +102,22 @@ ORDER BY
 
 
 
-
-
 -- 8.  Show the ID and average money spent, rounded to 3 decimal points, from 15 top spending customers 
 -- (by average spent) that spent below 4.5 so that customers who spent more appear at the top.
 
 
-
+SELECT 
+	customer_id, ROUND(AVG(p.amount),3) AS avg_spent
+FROM
+	payment p
+GROUP BY 
+	customer_id
+HAVING
+	AVG(p.amount) < 4.5
+ORDER BY
+	AVG(p.amount) DESC 
+LIMIT 
+	15;
 
 
 -- 9.  Show the total number of actors who share their last name with 3 or more other actors.
