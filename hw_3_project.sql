@@ -47,7 +47,14 @@ ORDER BY
 -- 4.  Display how many films there are in the database for each year. Output should only contain the
 -- year and number of films with oldest films appearing first.
 
-
+SELECT
+	film_year , count(film_rank)
+FROM 
+	movies
+GROUP BY 
+	film_year
+ORDER BY 
+	film_year ASC;
 
 
 
