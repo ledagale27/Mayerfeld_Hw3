@@ -89,6 +89,17 @@ ORDER BY
 
 -- 7.  List highest postal codes for all districts staring with either A, B, C, or D ordered by the starting letter.
 
+SELECT
+	MAX(postal_code), district 
+FROM
+	address
+WHERE
+	LEFT(district,1) < 'E' AND district != ''
+GROUP BY
+	district
+ORDER BY 
+	district ASC;
+
 
 
 
